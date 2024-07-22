@@ -1,0 +1,144 @@
+import React, { useEffect, useState } from "react";
+import MetaData from "../layouts/MetaData";
+import toast from "react-hot-toast";
+import Loader from "../layouts/Loader";
+import { MDBDataTable } from "mdbreact";
+import { Link } from "react-router-dom";
+
+import AdminLayout from "../layouts/AdminLayout";
+import {
+  useDeleteReviewsMutation,
+  useLazyGetProductReviewsQuery,
+} from "../../redux/api/productApi";
+const ProductReviews = () => {
+  const [productId, setProductId] = useState("");
+
+  const [getProductReviews, { data, isLoading, error }] =
+    useLazyGetProductReviewsQuery();
+
+  const [
+    deleteReviews,
+    { error: deleteError, isLoading: isDeleteLoading, isSuccess },
+  ] = useDeleteReviewsMutation();
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error?.data?.message);
+    }
+    if (deleteError) {
+      toast.error(deleteError?.data?.message);
+    }
+
+    if (isSuccess) {
+      toast.success("Review Deleted");
+    }
+  }, [error, deleteError, isSuccess]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    getProductReviews(productId);
+  };
+
+  const deleteReviewHandler = (id) => {
+    deleteReviews({ productId, id });
+  };
+
+  const setReviews = () => {
+    const reviews = {
+      columns: [
+        {
+          label: "Review ID",
+          field: "id",
+          sort: "asc",
+        },
+        {
+          label: "Rating",
+          field: "name",
+          sort: "asc",
+        },
+        {
+          label: "Comment",
+          field: "comment",
+          sort: "asc",
+        },
+        {
+          label: "User",
+          field: "user",
+          sort: "asc",
+        },
+
+        {
+          label: "Actions",
+          field: "actions",
+          sort: "asc",
+        },
+      ],
+      rows: [],
+    };
+
+    data?.reviews?.forEach((review) => {
+      reviews.rows.push({
+        id: review?._id,
+        rating: review?.rating,
+        comment: review?.comment,
+        user: review?.user?.name,
+        actions: (
+          <>
+            <button
+              className="btn btn-danger ms-2"
+              onClick={() => deleteReviewHandler(review?._id)}
+              disabled={isDeleteLoading}
+            >
+              <i className="fa fa-trash"></i>
+            </button>
+          </>
+        ),
+      });
+    });
+    return reviews;
+  };
+  return (
+    <AdminLayout>
+      <div className="row justify-content-center my-5">
+        <div className="col-6">
+          <form onSubmit={submitHandler}>
+            <div className="mb-3">
+              <label htmlFor="productId_field" className="form-label">
+                Enter Product ID
+              </label>
+              <input
+                type="text"
+                id="productId_field"
+                className="form-control"
+                value={productId}
+                onChange={(e) => setProductId(e.target.value)}
+              />
+            </div>
+
+            <button
+              id="search_button"
+              type="submit"
+              className="btn btn-primary w-100 py-2"
+            >
+              SEARCH
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {data?.reviews?.length > 0 ? (
+        <MDBDataTable
+          data={setReviews()}
+          className="px-3"
+          bordered
+          striped
+          hover
+        />
+      ) : (
+        <p className="mt-5 text-center">No Reviews</p>
+      )}
+    </AdminLayout>
+  );
+};
+
+export default ProductReviews;

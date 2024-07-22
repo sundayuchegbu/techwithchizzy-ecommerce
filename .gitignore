@@ -1,0 +1,9 @@
+node_modules
+
+.config.env
+
+.env.config
+
+.DS_Store
+
+.node_modules
