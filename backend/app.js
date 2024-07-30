@@ -15,6 +15,7 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
+// Setting up deployment
 if (process.env.NODE_ENV !== "PRODUCTION") {
   dotenv.config({ path: "backend/config/config.env" });
 }
