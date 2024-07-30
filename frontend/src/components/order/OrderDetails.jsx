@@ -26,6 +26,7 @@ const OrderDetails = () => {
     }
   }, [error]);
 
+  // Set loadeder
   if (isLoading) return <Loader />;
 
   return (

@@ -1,6 +1,7 @@
 import React from "react";
 import SidebarMenu from "./SidebarMenu";
 
+// Admin
 const AdminLayout = ({ children }) => {
   const menuItems = [
     {
