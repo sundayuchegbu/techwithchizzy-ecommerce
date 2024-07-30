@@ -53,7 +53,7 @@ const Invoice = () => {
             <div id="company" className="clearfix">
               <div>TechWithChizzy Store</div>
               <div>
-                62,Odunsi Street, ,
+                62, Odunsi Street,
                 <br />
                 Lagos, Nigeria
               </div>
@@ -75,8 +75,8 @@ const Invoice = () => {
                 <span>PHONE</span> {shippingInfo?.phoneNo}
               </div>
               <div>
-                <span>ADDRESS</span> {shippingInfo?.address},{" "}
-                {shippingInfo?.city}, {shippingInfo?.zipCode},{" "}
+                <span>ADDRESS</span> {shippingInfo?.address}{" "}
+                {shippingInfo?.city} {shippingInfo?.zipCode}{" "}
                 {shippingInfo?.country}
               </div>
               <div>
