@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import StarRatings from "react-star-ratings";
-import "./ProductItem.css"; // Create this CSS file
+import "./ProductItem.css";
 
 const ProductItem = ({ product, columnSize }) => {
   return (
