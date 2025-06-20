@@ -24,38 +24,41 @@ const Home = () => {
   ratings !== null && (params.ratings = ratings);
 
   const { data, isLoading } = useGetProductsQuery(params);
-  const columnSize = keyword ? 4 : 3;
+
   if (isLoading) return <Loader />;
+
   return (
     <>
       <MetaData title={"Buy best product online"} />
-      <div className="row">
-        {keyword && (
-          <div className="col-6 col-md-3 mt-5">
-            <Filters />
-          </div>
-        )}
-        <div className={keyword ? "col-6 col-md-9" : "col-6 col-md-12"}>
-          <h1 id="products_heading" className="text-secondary">
-            {keyword
-              ? ` ${data?.products?.length} Products found with keyword: ${keyword}`
-              : "Latest Products"}{" "}
-          </h1>
-
-          <section id="products" className="mt-5">
-            <div className="row">
-              {/* <!-- Product Item 1 */}
-              {data?.products?.map((product) => (
-                <ProductItem product={product} columnSize={columnSize} />
-              ))}
-
-              {/* End Product Item 1 */}
+      <div className="container-fluid">
+        <div className="row">
+          {keyword && (
+            <div className="col-12 col-md-3 col-lg-2 mt-3 mt-md-5">
+              <Filters />
             </div>
-          </section>
-          <CustomPagination
-            resPerPage={data?.resPerPage}
-            filterProductsCount={data?.filterProductsCount}
-          />
+          )}
+          <div className={keyword ? "col-12 col-md-9 col-lg-10" : "col-12"}>
+            <h1 id="products_heading" className="text-secondary px-3 px-md-0">
+              {keyword
+                ? `${data?.products?.length} Products found with keyword: ${keyword}`
+                : "Latest Products"}
+            </h1>
+
+            <section id="products" className="mt-3 mt-md-5 px-2 px-md-0">
+              <div className="row g-3 g-md-4">
+                {data?.products?.map((product) => (
+                  <ProductItem key={product._id} product={product} />
+                ))}
+              </div>
+            </section>
+
+            <div className="mt-4">
+              <CustomPagination
+                resPerPage={data?.resPerPage}
+                filterProductsCount={data?.filterProductsCount}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </>
