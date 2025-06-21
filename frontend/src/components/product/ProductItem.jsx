@@ -16,7 +16,7 @@ const ProductItem = ({ product }) => {
   const imageUrl = images[0]?.url || "/images/default_product.png";
 
   return (
-    <div className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2 mb-4">
+    <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
       <div className="card h-100 product-card">
         <Link to={`/product/${_id}`} className="text-decoration-none">
           <div className="product-image-container">

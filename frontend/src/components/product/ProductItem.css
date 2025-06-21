@@ -22,14 +22,22 @@
 /* Responsive adjustments */
 @media (max-width: 576px) {
   .product-card {
-    margin: 0 5px;
+    margin: 0;
+    width: 100%;
   }
+
+  .product-image-container {
+    text-align: center;
+  }
+
   .card-img-top {
-    height: 120px !important;
+    height: 140px !important;
   }
+
   .card-title {
     font-size: 14px;
   }
+
   .btn-sm {
     padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
