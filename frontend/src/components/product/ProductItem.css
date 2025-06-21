@@ -46,12 +46,12 @@
 
 @media (min-width: 576px) and (max-width: 768px) {
   .card-img-top {
-    height: 150px !important;
+    height: 100px !important;
   }
 }
 
 @media (min-width: 992px) {
   .card-img-top {
-    height: 200px !important;
+    height: 100px !important;
   }
 }
