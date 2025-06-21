@@ -31,7 +31,7 @@
   }
 
   .card-img-top {
-    height: 140px !important;
+    height: 50px !important;
   }
 
   .card-title {
@@ -46,12 +46,12 @@
 
 @media (min-width: 576px) and (max-width: 768px) {
   .card-img-top {
-    height: 100px !important;
+    height: 50px !important;
   }
 }
 
 @media (min-width: 992px) {
   .card-img-top {
-    height: 100px !important;
+    height: 50px !important;
   }
 }
