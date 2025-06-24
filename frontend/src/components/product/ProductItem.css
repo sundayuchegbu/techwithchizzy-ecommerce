@@ -1,57 +1,84 @@
 /* Product Card Styles */
 .product-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #eee;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
 .card-img-top {
   transition: transform 0.5s ease;
+  height: 180px;
+  object-fit: contain;
+  background: #f9f9f9;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
 }
 
 .product-card:hover .card-img-top {
   transform: scale(1.05);
 }
 
+/* Product Image Container */
+.product-image-container {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+/* Card Body */
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  height: 2.4em;
+  overflow: hidden;
+}
+
+/* Price & Button Row */
+.card-body .d-flex.justify-content-between {
+  margin-top: auto;
+}
+
+.btn-sm {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.75rem;
+  border-radius: 20px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 576px) {
   .product-card {
-    margin: 0;
     width: 100%;
-  }
-
-  .product-image-container {
-    text-align: center;
+    margin: 0;
   }
 
   .card-img-top {
-    /* height: 50px !important; */
+    height: 140px !important;
   }
 
   .card-title {
-    font-size: 14px;
+    font-size: 0.9rem;
   }
 
   .btn-sm {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
-}
-
-@media (min-width: 576px) and (max-width: 768px) {
-  /* .card-img-top { */
-  /* height: 50px !important;  */
-  /* } */
-}
-
-@media (min-width: 992px) {
-  /* .card-img-top {
-    height: 50px !important;
-  } */
 }
