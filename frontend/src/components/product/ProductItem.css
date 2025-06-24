@@ -32,7 +32,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 140px;
+  height: 160px; /* Or 170px if 160 is still tight */
+  padding: 0.5rem;
 }
 
 /* Card Body */
@@ -94,8 +95,12 @@
   }
 
   .card-img-top {
-    height: 120px !important;
-    padding: 6px;
+    transition: transform 0.4s ease;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    border-bottom: 1px solid #eee;
+    padding: 0;
   }
 
   .product-image-container {
