@@ -33,27 +33,25 @@ const ProductItem = ({ product }) => {
             />
           </div>
           <div className="card-body d-flex flex-column">
-            <h5 className="card-title text-truncate" title={name}>
+            <h5 className="card-title" title={name}>
               {name}
             </h5>
-            <div className="mt-2">
-              <div className="d-flex align-items-center mb-2">
-                <StarRatings
-                  rating={ratings}
-                  starRatedColor="#ffb829"
-                  numberOfStars={5}
-                  name="rating"
-                  starDimension="16px"
-                  starSpacing="0px"
-                />
-                <span className="text-muted ms-2 small">({numOfReviews})</span>
-              </div>
-              <div className="d-flex justify-content-between align-items-center">
-                <span className="fw-bold h5">${price}</span>
-                <span className="btn btn-sm btn-outline-primary">
-                  View Details
-                </span>
-              </div>
+
+            <div className="ratings-row">
+              <StarRatings
+                rating={ratings}
+                starRatedColor="#ffb829"
+                numberOfStars={5}
+                name="rating"
+                starDimension="14px"
+                starSpacing="1px"
+              />
+              <span className="text-muted small">({numOfReviews})</span>
+            </div>
+
+            <div className="bottom-row">
+              <span className="price">${price}</span>
+              <span className="btn btn-sm btn-outline-primary">View</span>
             </div>
           </div>
         </Link>
