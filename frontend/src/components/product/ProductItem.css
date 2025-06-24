@@ -31,7 +31,7 @@
   }
 
   .card-img-top {
-    height: 50px !important;
+    /* height: 50px !important; */
   }
 
   .card-title {
@@ -45,13 +45,13 @@
 }
 
 @media (min-width: 576px) and (max-width: 768px) {
-  .card-img-top {
-    height: 50px !important;
-  }
+  /* .card-img-top { */
+  /* height: 50px !important;  */
+  /* } */
 }
 
 @media (min-width: 992px) {
-  .card-img-top {
+  /* .card-img-top {
     height: 50px !important;
-  }
+  } */
 }

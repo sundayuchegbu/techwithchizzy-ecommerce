@@ -34,7 +34,7 @@ const ProductItem = ({ product }) => {
           </div>
           <div className="card-body d-flex flex-column">
             <h5 className="card-title text-truncate">{name}</h5>
-            <div className="mt-auto">
+            <div className="mt-2">
               <div className="d-flex align-items-center mb-2">
                 <StarRatings
                   rating={ratings}
